@@ -1,0 +1,57 @@
+"use client";
+
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+
+interface InteractiveHoverButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  href?: string;
+}
+
+export function InteractiveHoverButton({
+  children,
+  className,
+  href,
+  ...props
+}: InteractiveHoverButtonProps) {
+  const content = (
+    <>
+      <div className="flex items-center justify-center gap-2">
+        <div className="h-2 w-2 rounded-full bg-black transition-all duration-300 group-hover:scale-[100.8]" />
+
+        <span className="inline-block transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0">
+          {children}
+        </span>
+      </div>
+
+      <div className="absolute top-0 z-10 flex h-full w-full translate-x-12 items-center justify-center gap-2 bg-black text-white opacity-0 transition-all duration-300 group-hover:-translate-x-5 group-hover:opacity-100">
+        <span>{children}</span>
+        <ArrowRight />
+      </div>
+    </>
+  );
+
+  const classes = cn(
+    "group relative w-auto cursor-pointer overflow-hidden rounded-full border border-black/10 bg-white p-2 px-6 text-center font-semibold text-black",
+    className,
+  );
+
+  if (href) {
+    return (
+      <Link href={href} className={classes}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <button
+      className={classes}
+      {...props}
+    >
+      {content}
+    </button>
+  );
+}
