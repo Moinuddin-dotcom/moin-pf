@@ -63,49 +63,29 @@ export function Navbar() {
       >
         <nav className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-6">
           {/* Logo */}
-          <button
-            type="button"
-            onClick={() => handleNavigation("#home")}
-            className="group relative z-50 flex items-center gap-2 text-lg font-bold tracking-[-0.03em] text-white"
-          >
-            {/* Morphing Name */}
-           <button
-  type="button"
+         <div
+  role="button"
+  tabIndex={0}
   onClick={() => handleNavigation("#home")}
-  className="group relative z-50 flex items-center gap-2 text-white"
+  onKeyDown={(event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      handleNavigation("#home");
+    }
+  }}
+  className="group relative z-50 flex cursor-pointer items-center gap-2 text-lg font-bold tracking-[-0.03em] text-white"
 >
   <MorphingText
     texts={["Moinuddin", "Chowdhury"]}
-    className="!h-7 !w-[125px] !text-2xl !font-bold !leading-7 !tracking-[-0.03em] text-white"
+    className="!h-7 !w-[125px] !text-xl !font-bold !leading-7 !tracking-[-0.03em] text-white"
   />
 
-  {/* Availability Indicator */}
-  <span
-    className="relative flex h-2.5 w-2.5 shrink-0"
-    aria-label="Available for opportunities"
-  >
+  <span className="relative flex h-2.5 w-2.5 shrink-0">
     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00ffb2] opacity-50" />
-
     <span className="relative h-2.5 w-2.5 rounded-full bg-[#00ffb2]" />
   </span>
 
-  {/* Hover underline */}
   <span className="absolute -bottom-1 left-0 h-px w-0 bg-[#00ffb2] transition-all duration-300 group-hover:w-full" />
-</button>
-
-            {/* Availability Indicator */}
-            <span
-              className="relative flex h-2.5 w-2.5 shrink-0"
-              aria-label="Available for opportunities"
-            >
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00ffb2] opacity-50" />
-
-              <span className="relative h-2.5 w-2.5 rounded-full bg-[#00ffb2]" />
-            </span>
-
-            {/* Hover underline */}
-            <span className="absolute -bottom-1 left-0 h-px w-0 bg-[#00ffb2] transition-all duration-300 group-hover:w-full" />
-          </button>
+</div>
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-8 lg:flex">

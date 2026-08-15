@@ -8,12 +8,14 @@ import { cn } from "@/lib/utils";
 interface InteractiveHoverButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
+  download?: string;
 }
 
 export function InteractiveHoverButton({
   children,
   className,
   href,
+  download,
   ...props
 }: InteractiveHoverButtonProps) {
   const content = (
@@ -40,7 +42,11 @@ export function InteractiveHoverButton({
 
   if (href) {
     return (
-      <Link href={href} className={classes}>
+      <Link
+        href={href}
+        download={download}
+        className={classes}
+      >
         {content}
       </Link>
     );

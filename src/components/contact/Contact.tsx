@@ -22,7 +22,7 @@ interface ContactFormData {
   userMessage: string;
 }
 
-const EMAIL = "your-email@example.com";
+const EMAIL = "moinchy7@gmail.com";
 
 const contactLinks = [
   {

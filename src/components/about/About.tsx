@@ -11,7 +11,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function About() {
   const sectionRef = useRef<HTMLElement>(null);
-  const aboutVideo ="https://www.loom.com/share/94eccf3cf5404a88af397d979bb24530";
+  const aboutVideo =
+    "https://www.loom.com/share/94eccf3cf5404a88af397d979bb24530";
 
   useLayoutEffect(() => {
     const section = sectionRef.current;
@@ -92,8 +93,8 @@ export function About() {
 
             <p className="mt-6 text-base leading-7 text-white/50 md:text-lg">
               I enjoy turning complex requirements into clean, maintainable
-              solutions while keeping performance, usability, and
-              architecture in mind.
+              solutions while keeping performance, usability, and architecture
+              in mind.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">
@@ -147,19 +148,19 @@ export function About() {
           </div>
         </div>
         {/* About Video */}
-<div className="about-reveal mx-auto mt-20 max-w-5xl md:mt-28">
-  <div className="mb-7 text-center">
-    <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#00ffb2]">
-      A little more about me
-    </p>
+        <div className="about-reveal mx-auto mt-20 max-w-5xl md:mt-28">
+          <div className="mb-7 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#00ffb2]">
+              A little more about me
+            </p>
 
-    <h3 className="mt-3 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
-      Let me introduce myself.
-    </h3>
-  </div>
+            <h3 className="mt-3 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
+              Let me introduce myself.
+            </h3>
+          </div>
 
-  <ProjectVideo src={aboutVideo} />
-</div>
+          <ProjectVideo src={aboutVideo} />
+        </div>
       </div>
     </section>
   );

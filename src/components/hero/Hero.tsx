@@ -12,13 +12,25 @@ export function Hero() {
   const heroRef = useRef<HTMLElement>(null);
   const globeRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const handleViewWork = () => {
+  const projectsSection = document.querySelector("#projects");
+
+  if (!projectsSection) return;
+
+  projectsSection.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+};
 
   useLayoutEffect(() => {
     const hero = heroRef.current;
     const globe = globeRef.current;
     const content = contentRef.current;
+    
 
     if (!hero || !globe || !content) return;
+    
 
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
@@ -148,9 +160,16 @@ export function Hero() {
         </p>
 
         <div className="mt-9 flex flex-wrap justify-center gap-4">
-          <InteractiveHoverButton>View My Work</InteractiveHoverButton>
+          <InteractiveHoverButton onClick={handleViewWork}>
+  View My Work
+</InteractiveHoverButton>
 
-          <InteractiveHoverButton>Download Resume</InteractiveHoverButton>
+          <InteractiveHoverButton
+            href="/Moinuddin_Chowdhury_Resume.pdf"
+            download="Md-Moinuddin-Chowdhury-Resume.pdf"
+          >
+            Download Resume
+          </InteractiveHoverButton>
         </div>
       </div>
     </section>
