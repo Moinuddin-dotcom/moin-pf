@@ -39,7 +39,7 @@ export function Skills() {
   return (
     <section
       id="skills"
-      className="relative min-h-screen overflow-hidden bg-[#0a0a0a] px-6 py-24 text-white"
+      className="relative min-h-screen overflow-hidden bg-[#0a0a0a] px-6 lg:py-24 text-white"
     >
       <div className="mx-auto max-w-7xl">
         {/* Section heading */}

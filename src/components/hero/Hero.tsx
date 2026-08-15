@@ -13,24 +13,22 @@ export function Hero() {
   const globeRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const handleViewWork = () => {
-  const projectsSection = document.querySelector("#projects");
+    const projectsSection = document.querySelector("#projects");
 
-  if (!projectsSection) return;
+    if (!projectsSection) return;
 
-  projectsSection.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
-};
+    projectsSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
 
   useLayoutEffect(() => {
     const hero = heroRef.current;
     const globe = globeRef.current;
     const content = contentRef.current;
-    
 
     if (!hero || !globe || !content) return;
-    
 
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
@@ -85,7 +83,7 @@ export function Hero() {
     <section
       ref={heroRef}
       id="home"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#0a0a0a] px-6 mt-24 xl:mt-2 text-white"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#0a0a0a] px-6 mt-6 md:mt-0 lg:mt-4 xl:mt-2 text-white"
     >
       {/* Globe Background */}
       <div
@@ -161,8 +159,8 @@ export function Hero() {
 
         <div className="mt-9 flex flex-wrap justify-center gap-4">
           <InteractiveHoverButton onClick={handleViewWork}>
-  View My Work
-</InteractiveHoverButton>
+            View My Work
+          </InteractiveHoverButton>
 
           <InteractiveHoverButton
             href="/Moinuddin_Chowdhury_Resume.pdf"

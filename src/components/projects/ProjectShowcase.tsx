@@ -157,7 +157,7 @@ const panelsRef = useRef<HTMLElement[]>([]);
           ref={stageRef}
           className="relative hidden min-h-screen overflow-hidden md:block"
         >
-          <div className="mx-auto flex min-h-screen max-w-7xl items-center px-6 py-24">
+          <div className="mx-auto flex min-h-screen max-w-7xl items-center px-6 py-12 lg:py-24">
             <div className="grid w-full grid-cols-[0.3fr_1fr_0.7fr] items-center gap-8">
               {/* Project number */}
               <div className="self-start pt-20">

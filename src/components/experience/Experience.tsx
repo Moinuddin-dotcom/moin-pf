@@ -146,7 +146,7 @@ export function Experience() {
     <section
       ref={sectionRef}
       id="experience"
-      className="relative overflow-hidden bg-[#0a0a0a] px-6 py-28 text-white md:py-36"
+      className="relative overflow-hidden bg-[#0a0a0a] px-6 py-12 lg:py-28 text-white "
     >
       {/* Background glow */}
       <div
