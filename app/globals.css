@@ -133,3 +133,12 @@
     mix-blend-mode: normal;
 }
 
+html,
+body,
+button,
+a,
+input,
+textarea,
+select {
+  cursor: none;
+}
