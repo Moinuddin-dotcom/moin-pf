@@ -48,7 +48,7 @@ export function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative overflow-hidden bg-[#0a0a0a] px-6 py-10 lg:py-28 text-white md:py-36"
+      className="relative overflow-hidden bg-[#0a0a0a] px-6 py-10 lg:py-28 text-white"
     >
       {/* Background glow */}
       <div

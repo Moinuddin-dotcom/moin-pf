@@ -83,7 +83,7 @@ export function Hero() {
     <section
       ref={heroRef}
       id="home"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#0a0a0a] px-6 mt-6 md:mt-0 lg:mt-4 xl:mt-2 text-white"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#0a0a0a] px-6 pt-24  text-white"
     >
       {/* Globe Background */}
       <div

@@ -39,7 +39,7 @@ export function Skills() {
   return (
     <section
       id="skills"
-      className="relative min-h-screen overflow-hidden bg-[#0a0a0a] px-6 lg:py-24 text-white"
+      className="relative min-h-screen overflow-hidden bg-[#0a0a0a] px-6 md:py-24 text-white"
     >
       <div className="mx-auto max-w-7xl">
         {/* Section heading */}
@@ -72,7 +72,7 @@ export function Skills() {
         </div>
 
         {/* Icon Cloud */}
-       <div className="relative  mx-auto mt-8 flex h-[400px] w-full max-w-[550px] items-center justify-center">
+       <div className="relative  mx-auto mt-8 flex h-[250px] md:h-[300px] lg:h-[400px] w-full max-w-[550px] items-center justify-center">
   <IconCloud
     icons={icons}
     showControl={false}
@@ -80,7 +80,7 @@ export function Skills() {
 </div>
 
         {/* Skill categories */}
-        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto grid max-w-5xl gap-4 md:gap-6 grid-cols-2 lg:grid-cols-4">
           <SkillCategory
             title="Frontend"
             items={[
