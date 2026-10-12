@@ -18,7 +18,7 @@ export function ProjectVideo({ src }: ProjectVideoProps) {
       .split("?")[0];
 
     return (
-      <div className="relative aspect-video w-full overflow-hidden rounded-3xl border border-white/10 bg-black shadow-2xl">
+      <div className="relative aspect-video w-full overflow-hidden rounded-3xl border border-ink/10 bg-black shadow-2xl">
         <iframe
           src={embedUrl}
           title="Project walkthrough video"
@@ -31,7 +31,7 @@ export function ProjectVideo({ src }: ProjectVideoProps) {
   }
 
   return (
-    <div className="overflow-hidden rounded-3xl border border-white/10 bg-black">
+    <div className="overflow-hidden rounded-3xl border border-ink/10 bg-black">
       <video
         className="block w-full"
         controls

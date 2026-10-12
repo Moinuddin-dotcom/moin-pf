@@ -39,12 +39,12 @@ export function Skills() {
   return (
     <section
       id="skills"
-      className="relative min-h-screen overflow-hidden bg-[#0a0a0a] px-6 md:py-24 text-white"
+      className="relative min-h-screen overflow-hidden bg-surface px-6 md:py-24 text-ink"
     >
       <div className="mx-auto max-w-7xl">
         {/* Section heading */}
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-medium uppercase tracking-[0.3em] text-[#00ffb2]/70">
+          <p className="text-sm font-medium uppercase tracking-[0.3em] text-brand/70">
             My Tech Stack
           </p>
 
@@ -64,7 +64,7 @@ export function Skills() {
             full-stack products.
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/55 sm:text-lg">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-ink/55 sm:text-lg">
             A modern stack for building interactive interfaces, scalable APIs,
             real-time systems, data-driven applications, and production
             infrastructure.
@@ -137,8 +137,8 @@ function SkillCategory({
   items: string[];
 }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
-      <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#00ffb2]">
+    <div className="rounded-2xl border border-ink/10 bg-ink/[0.02] p-6">
+      <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
         {title}
       </h3>
 
@@ -146,7 +146,7 @@ function SkillCategory({
         {items.map((item) => (
           <li
             key={item}
-            className="text-sm text-white/60 transition-colors hover:text-white"
+            className="text-sm text-ink/60 transition-colors hover:text-ink"
           >
             {item}
           </li>

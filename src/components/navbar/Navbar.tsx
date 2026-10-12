@@ -3,9 +3,11 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { MorphingText } from "@/components/ui/morphing-text";
+import { useIsDark } from "@/hooks/use-is-dark";
 
 const navItems = [
   { name: "About", href: "#about" },
@@ -15,9 +17,13 @@ const navItems = [
   { name: "Contact", href: "#contact" },
 ];
 
+const themeTogglerClassName =
+  "flex h-10 w-10 items-center justify-center rounded-full border border-ink/10 text-ink transition-colors hover:bg-ink/10 [&_svg]:size-[18px]";
+
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const currentTheme = useIsDark() ? "dark" : "light";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,13 +57,13 @@ export function Navbar() {
   return (
     <>
       {/* Scroll Progress */}
-      <ScrollProgress className="from-[#00ffb2] via-[#00d9ff] to-[#00ffb2]" />
+      <ScrollProgress className="from-brand via-[#00d9ff] to-brand" />
 
       {/* Navbar */}
       <header
         className={`fixed inset-x-0 top-0 z-40 transition-all duration-300 ${
           scrolled
-            ? "border-b border-white/10 bg-[#0a0a0a]/75 backdrop-blur-xl"
+            ? "border-b border-ink/10 bg-surface/75 backdrop-blur-xl"
             : "bg-transparent"
         }`}
       >
@@ -72,19 +78,19 @@ export function Navbar() {
       handleNavigation("#home");
     }
   }}
-  className="group relative z-50 flex cursor-pointer items-center gap-2 text-lg font-bold tracking-[-0.03em] text-white"
+  className="group relative z-50 flex cursor-pointer items-center gap-2 text-lg font-bold tracking-[-0.03em] text-ink"
 >
   <MorphingText
     texts={["Moinuddin", "Chowdhury"]}
-    className="!h-7 !w-[125px] !text-xl !font-bold !leading-7 !tracking-[-0.03em] text-white"
+    className="!h-7 !w-[125px] !text-xl !font-bold !leading-7 !tracking-[-0.03em] text-ink"
   />
 
   <span className="relative flex h-2.5 w-2.5 shrink-0">
-    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00ffb2] opacity-50" />
-    <span className="relative h-2.5 w-2.5 rounded-full bg-[#00ffb2]" />
+    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-50" />
+    <span className="relative h-2.5 w-2.5 rounded-full bg-brand" />
   </span>
 
-  <span className="absolute -bottom-1 left-0 h-px w-0 bg-[#00ffb2] transition-all duration-300 group-hover:w-full" />
+  <span className="absolute -bottom-1 left-0 h-px w-0 bg-brand transition-all duration-300 group-hover:w-full" />
 </div>
 
           {/* Desktop Navigation */}
@@ -94,17 +100,22 @@ export function Navbar() {
                 key={item.href}
                 type="button"
                 onClick={() => handleNavigation(item.href)}
-                className="group relative text-sm font-medium text-white/65 transition-colors duration-300 hover:text-white"
+                className="group relative text-sm font-medium text-ink/65 transition-colors duration-300 hover:text-ink"
               >
                 {item.name}
 
-                <span className="absolute -bottom-2 left-1/2 h-px w-0 -translate-x-1/2 bg-[#00ffb2] transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-2 left-1/2 h-px w-0 -translate-x-1/2 bg-brand transition-all duration-300 group-hover:w-full" />
               </button>
             ))}
           </div>
 
           {/* Desktop Actions */}
           <div className="hidden items-center gap-3 lg:flex">
+            <AnimatedThemeToggler
+              theme={currentTheme}
+              className={themeTogglerClassName}
+            />
+
             <InteractiveHoverButton
               onClick={() => handleNavigation("#contact")}
               className="px-5 py-2"
@@ -115,10 +126,15 @@ export function Navbar() {
 
           {/* Mobile Actions */}
           <div className="flex items-center gap-2 lg:hidden">
+            <AnimatedThemeToggler
+              theme={currentTheme}
+              className={themeTogglerClassName}
+            />
+
             <button
               type="button"
               onClick={() => setMobileOpen((prev) => !prev)}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white transition-colors hover:bg-white/10"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/10 text-ink transition-colors hover:bg-ink/10"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
             >
@@ -129,7 +145,7 @@ export function Navbar() {
 
         {/* Mobile Menu */}
         <div
-          className={`overflow-hidden border-t border-white/10 bg-[#0a0a0a]/95 backdrop-blur-xl transition-all duration-300 lg:hidden ${
+          className={`overflow-hidden border-t border-ink/10 bg-surface/95 backdrop-blur-xl transition-all duration-300 lg:hidden ${
             mobileOpen
               ? "max-h-[500px] opacity-100"
               : "max-h-0 border-transparent opacity-0"
@@ -141,7 +157,7 @@ export function Navbar() {
                 key={item.href}
                 type="button"
                 onClick={() => handleNavigation(item.href)}
-                className="border-b border-white/5 py-4 text-left text-sm font-medium text-white/70 transition-colors hover:text-white"
+                className="border-b border-ink/5 py-4 text-left text-sm font-medium text-ink/70 transition-colors hover:text-ink"
               >
                 {item.name}
               </button>

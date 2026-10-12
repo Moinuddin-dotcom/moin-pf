@@ -74,7 +74,7 @@ export function WelcomeScreen({ onComplete }: WelcomeScreenProps) {
   return (
     <section
       ref={containerRef}
-      className="fixed inset-0 z-[9999] flex min-h-screen items-center justify-center overflow-hidden bg-[#0a0a0a]"
+      className="fixed inset-0 z-[9999] flex min-h-screen items-center justify-center overflow-hidden bg-surface"
       aria-label="Welcome to my portfolio"
     >
       <RetroGrid
@@ -89,11 +89,11 @@ export function WelcomeScreen({ onComplete }: WelcomeScreenProps) {
         ref={welcomeTextRef}
         className="relative z-10 px-6 text-center"
       >
-        <p className="mb-3 text-sm font-medium uppercase tracking-[0.35em] text-white/50 sm:text-base">
+        <p className="mb-3 text-sm font-medium uppercase tracking-[0.35em] text-ink/50 sm:text-base">
           Welcome to
         </p>
 
-        <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-6xl md:text-7xl">
+        <h1 className="text-4xl font-semibold tracking-tight text-ink sm:text-6xl md:text-7xl">
           My Portfolio
         </h1>
       </div>

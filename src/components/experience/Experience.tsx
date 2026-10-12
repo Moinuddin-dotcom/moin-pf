@@ -11,10 +11,49 @@ gsap.registerPlugin(ScrollTrigger);
 
 const experiences = [
   {
-    period: "Present",
+    period: "October 2026 — Present",
+    role: "Full Stack Developer",
+    company: "Waffaq Solutions",
+    location: "Chattogram, Bangladesh",
+    type: "Professional Experience",
+
+    description:
+      "Building SaaS products and MVPs from the ground up, taking ideas from early concept to launch-ready applications across frontend, backend, databases, authentication, payments, and deployment.",
+
+    highlights: [
+      "End-to-end SaaS product development",
+      "Rapid MVP builds from concept to launch",
+      "Multi-tenant architecture and role-based access",
+      "Subscription billing and payment integration",
+      "Scalable APIs and database design",
+      "Admin dashboards and analytics interfaces",
+    ],
+
+    technologies: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "NestJS",
+      "PostgreSQL",
+      "MongoDB",
+      "Prisma",
+      "Redis",
+      "Docker",
+      "Socket.IO",
+      "NextAuth",
+      "Cloudinary",
+      "Stripe",
+    ],
+  },
+
+  {
+    period: "January 2025 — Present",
     role: "Full Stack Developer",
     company: "Pixel & Code",
-    location: "Chattogram, Bangladesh",
+    location: "Remote, Bangladesh",
     type: "Professional Experience",
 
     description:
@@ -146,18 +185,18 @@ export function Experience() {
     <section
       ref={sectionRef}
       id="experience"
-      className="relative overflow-hidden bg-[#0a0a0a] px-6 py-12 lg:py-28 text-white "
+      className="relative overflow-hidden bg-surface px-6 py-12 lg:py-28 text-ink "
     >
       {/* Background glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute right-[-200px] top-1/3 h-[500px] w-[500px] rounded-full bg-[#00ffb2]/5 blur-[150px]"
+        className="pointer-events-none absolute right-[-200px] top-1/3 h-[500px] w-[500px] rounded-full bg-brand/5 blur-[150px]"
       />
 
       <div className="relative z-10 mx-auto max-w-7xl">
         {/* Section Heading */}
         <div className="experience-reveal max-w-3xl">
-          <p className="text-sm font-medium uppercase tracking-[0.3em] text-[#00ffb2]/70">
+          <p className="text-sm font-medium uppercase tracking-[0.3em] text-brand/70">
             Experience
           </p>
 
@@ -177,7 +216,7 @@ export function Experience() {
             .
           </h2>
 
-          <p className="mt-6 max-w-2xl text-base leading-7 text-white/50 sm:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-7 text-ink/50 sm:text-lg">
             A combination of software development and professional
             operations experience that shaped how I approach products,
             systems, and problem solving.
@@ -189,9 +228,9 @@ export function Experience() {
           {/* Timeline */}
           <div
             aria-hidden="true"
-            className="absolute left-[7px] top-2 hidden h-[calc(100%-10px)] w-px bg-white/10 md:block"
+            className="absolute left-[7px] top-2 hidden h-[calc(100%-10px)] w-px bg-ink/10 md:block"
           >
-            <div className="experience-line h-full w-full origin-top bg-[#00ffb2]/60" />
+            <div className="experience-line h-full w-full origin-top bg-brand/60" />
           </div>
 
           <div className="space-y-16 md:space-y-24">
@@ -201,25 +240,25 @@ export function Experience() {
                 className="experience-reveal relative md:pl-16"
               >
                 {/* Timeline dot */}
-                <div className="absolute left-0 top-1 hidden h-4 w-4 items-center justify-center rounded-full border border-[#00ffb2]/50 bg-[#0a0a0a] md:flex">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#00ffb2]" />
+                <div className="absolute left-0 top-1 hidden h-4 w-4 items-center justify-center rounded-full border border-brand/50 bg-surface md:flex">
+                  <span className="h-1.5 w-1.5 rounded-full bg-brand" />
                 </div>
 
                 <div className="grid gap-8 lg:grid-cols-[220px_1fr] lg:gap-16">
                   {/* Period */}
                   <div>
-                    <p className="text-sm font-medium text-[#00ffb2]">
+                    <p className="text-sm font-medium text-brand">
                       {experience.period}
                     </p>
 
-                    <div className="mt-3 flex items-center gap-2 text-xs text-white/35">
+                    <div className="mt-3 flex items-center gap-2 text-xs text-ink/35">
                       <BriefcaseBusiness size={14} />
                       {experience.type}
                     </div>
                   </div>
 
                   {/* Experience Card */}
-                  <div className="rounded-3xl border border-white/10 bg-white/[0.025] p-6 sm:p-8 md:p-10">
+                  <div className="rounded-3xl border border-ink/10 bg-ink/[0.025] p-6 sm:p-8 md:p-10">
                     {/* Header */}
                     <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-start">
                       <div>
@@ -227,25 +266,25 @@ export function Experience() {
                           {experience.role}
                         </h3>
 
-                        <p className="mt-2 text-base font-medium text-white/60">
+                        <p className="mt-2 text-base font-medium text-ink/60">
                           {experience.company}
                         </p>
 
                         {experience.companyContext && (
-                          <p className="mt-1 text-sm text-white/35">
+                          <p className="mt-1 text-sm text-ink/35">
                             {experience.companyContext}
                           </p>
                         )}
                       </div>
 
-                      <div className="flex items-center gap-2 text-sm text-white/35">
+                      <div className="flex items-center gap-2 text-sm text-ink/35">
                         <MapPin size={15} />
                         {experience.location}
                       </div>
                     </div>
 
                     {/* Description */}
-                    <p className="mt-7 max-w-3xl text-base leading-7 text-white/55">
+                    <p className="mt-7 max-w-3xl text-base leading-7 text-ink/55">
                       {experience.description}
                     </p>
 
@@ -254,7 +293,7 @@ export function Experience() {
                       {experience.highlights.map((highlight) => (
                         <div
                           key={highlight}
-                          className="rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 text-sm leading-6 text-white/55 transition-colors duration-300 hover:border-[#00ffb2]/20 hover:text-white/70"
+                          className="rounded-xl border border-ink/10 bg-ink/[0.02] px-4 py-3 text-sm leading-6 text-ink/55 transition-colors duration-300 hover:border-brand/20 hover:text-ink/70"
                         >
                           {highlight}
                         </div>
@@ -266,7 +305,7 @@ export function Experience() {
                       {experience.technologies.map((technology) => (
                         <span
                           key={technology}
-                          className="rounded-full border border-white/10 px-3 py-1.5 text-xs text-white/45 transition-colors duration-300 hover:border-[#00ffb2]/30 hover:text-[#00ffb2]"
+                          className="rounded-full border border-ink/10 px-3 py-1.5 text-xs text-ink/45 transition-colors duration-300 hover:border-brand/30 hover:text-brand"
                         >
                           {technology}
                         </span>

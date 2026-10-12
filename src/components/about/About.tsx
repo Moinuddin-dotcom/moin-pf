@@ -48,18 +48,18 @@ export function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative overflow-hidden bg-[#0a0a0a] px-6 py-10 lg:py-28 text-white"
+      className="relative overflow-hidden bg-surface px-6 py-10 lg:py-28 text-ink"
     >
       {/* Background glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#00ffb2]/5 blur-[140px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand/5 blur-[140px]"
       />
 
       <div className="relative z-10 mx-auto max-w-7xl">
         {/* Heading */}
         <div className="about-reveal mx-auto max-w-3xl text-center">
-          <p className="text-sm font-medium uppercase tracking-[0.3em] text-[#00ffb2]/70">
+          <p className="text-sm font-medium uppercase tracking-[0.3em] text-brand/70">
             About Me
           </p>
 
@@ -84,14 +84,14 @@ export function About() {
         <div className="mt-16 grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
           {/* Description */}
           <div className="about-reveal">
-            <p className="text-lg leading-8 text-white/65 md:text-xl">
+            <p className="text-lg leading-8 text-ink/65 md:text-xl">
               I’m a Full-Stack Developer focused on building scalable,
               production-ready web applications from frontend interfaces to
               backend services, databases, authentication, real-time systems,
               and deployment.
             </p>
 
-            <p className="mt-6 text-base leading-7 text-white/50 md:text-lg">
+            <p className="mt-6 text-base leading-7 text-ink/50 md:text-lg">
               I enjoy turning complex requirements into clean, maintainable
               solutions while keeping performance, usability, and architecture
               in mind.
@@ -108,7 +108,7 @@ export function About() {
               ].map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-white/60 transition-colors duration-300 hover:border-[#00ffb2]/40 hover:text-white"
+                  className="rounded-full border border-ink/10 bg-ink/[0.03] px-4 py-2 text-sm text-ink/60 transition-colors duration-300 hover:border-brand/40 hover:text-ink"
                 >
                   {item}
                 </span>
@@ -118,8 +118,8 @@ export function About() {
 
           {/* Expertise Card */}
           <div className="about-reveal relative">
-            <div className="rounded-3xl border border-white/10 bg-white/[0.025] p-7 backdrop-blur-sm md:p-9">
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#00ffb2]">
+            <div className="rounded-3xl border border-ink/10 bg-ink/[0.025] p-7 backdrop-blur-sm md:p-9">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand">
                 Core Expertise
               </p>
 
@@ -150,7 +150,7 @@ export function About() {
         {/* About Video */}
         <div className="about-reveal mx-auto mt-20 max-w-5xl md:mt-28">
           <div className="mb-7 text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#00ffb2]">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand">
               A little more about me
             </p>
 
@@ -174,10 +174,10 @@ function Expertise({
   description: string;
 }) {
   return (
-    <div className="border-b border-white/10 pb-5 last:border-0 last:pb-0">
-      <h3 className="text-base font-semibold text-white">{title}</h3>
+    <div className="border-b border-ink/10 pb-5 last:border-0 last:pb-0">
+      <h3 className="text-base font-semibold text-ink">{title}</h3>
 
-      <p className="mt-2 text-sm leading-6 text-white/45">{description}</p>
+      <p className="mt-2 text-sm leading-6 text-ink/45">{description}</p>
     </div>
   );
 }

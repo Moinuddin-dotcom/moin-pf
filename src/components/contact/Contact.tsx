@@ -139,18 +139,18 @@ export function Contact() {
     <section
       ref={sectionRef}
       id="contact"
-      className="relative overflow-hidden bg-[#0a0a0a] px-4 py-20 text-white sm:px-6 sm:py-24 md:py-36"
+      className="relative overflow-hidden bg-surface px-4 py-20 text-ink sm:px-6 sm:py-24 md:py-36"
     >
       {/* Background glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[350px] w-[350px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#00ffb2]/5 blur-[120px] sm:h-[500px] sm:w-[500px] sm:blur-[140px] md:h-[600px] md:w-[600px] md:blur-[160px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[350px] w-[350px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand/5 blur-[120px] sm:h-[500px] sm:w-[500px] sm:blur-[140px] md:h-[600px] md:w-[600px] md:blur-[160px]"
       />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl">
         {/* Heading */}
         <div className="contact-reveal mx-auto w-full max-w-3xl text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.25em] text-[#00ffb2]/70 sm:text-sm sm:tracking-[0.3em]">
+          <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand/70 sm:text-sm sm:tracking-[0.3em]">
             Contact
           </p>
 
@@ -170,7 +170,7 @@ export function Contact() {
             .
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-6 text-white/50 sm:mt-6 sm:text-base sm:leading-7 md:text-lg">
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-6 text-ink/50 sm:mt-6 sm:text-base sm:leading-7 md:text-lg">
             Have a project, an opportunity, or an idea worth discussing?
             I&apos;d be happy to hear from you.
           </p>
@@ -179,7 +179,7 @@ export function Contact() {
         {/* Main Contact Card */}
         <div className="contact-reveal mx-auto mt-10 w-full max-w-6xl sm:mt-14">
           <MagicCard
-            className="w-full rounded-2xl border border-white/10 bg-white/[0.025] p-1 sm:rounded-3xl"
+            className="w-full rounded-2xl border border-ink/10 bg-ink/[0.025] p-1 sm:rounded-3xl"
             gradientColor="#00ffb2"
             gradientOpacity={0.12}
           >
@@ -188,7 +188,7 @@ export function Contact() {
                   Contact Form
               ========================== */}
               <div className="min-w-0 p-5 sm:p-8 md:p-10 lg:p-12">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#00ffb2] sm:text-xs sm:tracking-[0.25em]">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand sm:text-xs sm:tracking-[0.25em]">
                   Start a conversation
                 </p>
 
@@ -196,7 +196,7 @@ export function Contact() {
                   Have something you&apos;d like to build?
                 </h3>
 
-                <p className="mt-4 max-w-xl text-sm leading-6 text-white/50 sm:mt-5 sm:text-base sm:leading-7">
+                <p className="mt-4 max-w-xl text-sm leading-6 text-ink/50 sm:mt-5 sm:text-base sm:leading-7">
                   Whether you&apos;re building a new product, improving an
                   existing platform, or looking for a full-stack developer,
                   let&apos;s talk about what you&apos;re working on.
@@ -211,7 +211,7 @@ export function Contact() {
                     <div className="grid gap-2">
                       <label
                         htmlFor="name"
-                        className="text-xs font-medium text-white/70 sm:text-sm"
+                        className="text-xs font-medium text-ink/70 sm:text-sm"
                       >
                         Your name
                       </label>
@@ -224,7 +224,7 @@ export function Contact() {
                         {...register("name", {
                           required: "Please enter your name.",
                         })}
-                        className="h-11 w-full rounded-xl border border-white/10 bg-white/[0.03] px-3.5 text-sm text-white outline-none transition placeholder:text-white/25 focus:border-[#00ffb2]/50 focus:ring-1 focus:ring-[#00ffb2]/20 sm:h-12 sm:px-4"
+                        className="h-11 w-full rounded-xl border border-ink/10 bg-ink/[0.03] px-3.5 text-sm text-ink outline-none transition placeholder:text-ink/25 focus:border-brand/50 focus:ring-1 focus:ring-brand/20 sm:h-12 sm:px-4"
                       />
                     </div>
 
@@ -232,7 +232,7 @@ export function Contact() {
                     <div className="grid gap-2">
                       <label
                         htmlFor="email"
-                        className="text-xs font-medium text-white/70 sm:text-sm"
+                        className="text-xs font-medium text-ink/70 sm:text-sm"
                       >
                         Your email
                       </label>
@@ -245,7 +245,7 @@ export function Contact() {
                         {...register("email", {
                           required: "Please enter your email.",
                         })}
-                        className="h-11 w-full rounded-xl border border-white/10 bg-white/[0.03] px-3.5 text-sm text-white outline-none transition placeholder:text-white/25 focus:border-[#00ffb2]/50 focus:ring-1 focus:ring-[#00ffb2]/20 sm:h-12 sm:px-4"
+                        className="h-11 w-full rounded-xl border border-ink/10 bg-ink/[0.03] px-3.5 text-sm text-ink outline-none transition placeholder:text-ink/25 focus:border-brand/50 focus:ring-1 focus:ring-brand/20 sm:h-12 sm:px-4"
                       />
                     </div>
 
@@ -253,7 +253,7 @@ export function Contact() {
                     <div className="grid gap-2">
                       <label
                         htmlFor="userMessage"
-                        className="text-xs font-medium text-white/70 sm:text-sm"
+                        className="text-xs font-medium text-ink/70 sm:text-sm"
                       >
                         Your message
                       </label>
@@ -265,7 +265,7 @@ export function Contact() {
                         {...register("userMessage", {
                           required: "Please enter your message.",
                         })}
-                        className="min-h-[130px] w-full resize-y rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-3 text-sm leading-6 text-white outline-none transition placeholder:text-white/25 focus:border-[#00ffb2]/50 focus:ring-1 focus:ring-[#00ffb2]/20 sm:min-h-[150px] sm:px-4"
+                        className="min-h-[130px] w-full resize-y rounded-xl border border-ink/10 bg-ink/[0.03] px-3.5 py-3 text-sm leading-6 text-ink outline-none transition placeholder:text-ink/25 focus:border-brand/50 focus:ring-1 focus:ring-brand/20 sm:min-h-[150px] sm:px-4"
                       />
                     </div>
                   </div>
@@ -284,8 +284,8 @@ export function Contact() {
                       <p
                         className={`text-center text-xs leading-5 sm:max-w-[220px] sm:text-right sm:text-sm ${
                           result.includes("successfully")
-                            ? "text-[#00ffb2]"
-                            : "text-white/50"
+                            ? "text-brand"
+                            : "text-ink/50"
                         }`}
                       >
                         {result}
@@ -298,8 +298,8 @@ export function Contact() {
               {/* =========================
                   Contact Information
               ========================== */}
-              <div className="min-w-0 border-t border-white/10 bg-white/[0.02] p-5 sm:p-8 lg:border-l lg:border-t-0 lg:p-10">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/30 sm:text-xs sm:tracking-[0.25em]">
+              <div className="min-w-0 border-t border-ink/10 bg-ink/[0.02] p-5 sm:p-8 lg:border-l lg:border-t-0 lg:p-10">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-ink/30 sm:text-xs sm:tracking-[0.25em]">
                   Connect
                 </p>
 
@@ -307,7 +307,7 @@ export function Contact() {
                   Let&apos;s connect.
                 </h3>
 
-                <p className="mt-3 text-sm leading-6 text-white/40 sm:mt-4">
+                <p className="mt-3 text-sm leading-6 text-ink/40 sm:mt-4">
                   You can also reach me directly through any of the
                   following channels.
                 </p>
@@ -331,22 +331,22 @@ export function Contact() {
                             ? undefined
                             : "noopener noreferrer"
                         }
-                        className="group flex min-w-0 items-center justify-between gap-3 rounded-2xl border border-white/10 bg-white/[0.02] p-3.5 transition-all duration-300 hover:border-[#00ffb2]/30 hover:bg-[#00ffb2]/[0.03] sm:p-4"
+                        className="group flex min-w-0 items-center justify-between gap-3 rounded-2xl border border-ink/10 bg-ink/[0.02] p-3.5 transition-all duration-300 hover:border-brand/30 hover:bg-brand/[0.03] sm:p-4"
                       >
                         <div className="flex min-w-0 items-center gap-3 sm:gap-4">
-                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] sm:h-10 sm:w-10">
+                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-ink/10 bg-ink/[0.03] sm:h-10 sm:w-10">
                             <Icon
                               size={17}
-                              className="text-white/60 transition-colors group-hover:text-[#00ffb2]"
+                              className="text-ink/60 transition-colors group-hover:text-brand"
                             />
                           </div>
 
                           <div className="min-w-0 flex-1">
-                            <p className="text-[11px] text-white/30 sm:text-xs">
+                            <p className="text-[11px] text-ink/30 sm:text-xs">
                               {link.label}
                             </p>
 
-                            <p className="mt-1 truncate text-xs font-medium text-white/65 transition-colors group-hover:text-white sm:text-sm">
+                            <p className="mt-1 truncate text-xs font-medium text-ink/65 transition-colors group-hover:text-ink sm:text-sm">
                               {link.value}
                             </p>
                           </div>
@@ -354,7 +354,7 @@ export function Contact() {
 
                         <ArrowUpRight
                           size={16}
-                          className="shrink-0 text-white/25 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#00ffb2]"
+                          className="shrink-0 text-ink/25 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand"
                         />
                       </a>
                     );
@@ -362,7 +362,7 @@ export function Contact() {
                 </div>
 
                 {/* Location */}
-                <div className="mt-6 flex items-center gap-3 border-t border-white/10 pt-5 text-xs text-white/35 sm:mt-7 sm:pt-6 sm:text-sm">
+                <div className="mt-6 flex items-center gap-3 border-t border-ink/10 pt-5 text-xs text-ink/35 sm:mt-7 sm:pt-6 sm:text-sm">
                   <MapPin size={15} className="shrink-0 sm:size-4" />
                   <span>Chattogram, Bangladesh</span>
                 </div>
@@ -370,11 +370,11 @@ export function Contact() {
                 {/* Availability */}
                 <div className="mt-5 flex items-center gap-3 sm:mt-6">
                   <span className="relative flex h-2.5 w-2.5 shrink-0">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00ffb2] opacity-50" />
-                    <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#00ffb2]" />
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-50" />
+                    <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-brand" />
                   </span>
 
-                  <span className="text-xs text-white/40 sm:text-sm">
+                  <span className="text-xs text-ink/40 sm:text-sm">
                     Open to new opportunities
                   </span>
                 </div>

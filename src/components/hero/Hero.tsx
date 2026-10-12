@@ -83,7 +83,7 @@ export function Hero() {
     <section
       ref={heroRef}
       id="home"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#0a0a0a] px-6 pt-24  text-white"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-surface px-6 pt-24  text-ink"
     >
       {/* Globe Background */}
       <div
@@ -99,13 +99,13 @@ export function Hero() {
       {/* Dark Overlay */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[#0a0a0a]/45"
+        className="pointer-events-none absolute inset-0 bg-surface/45"
       />
 
       {/* Accent Glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#00ffb2]/10 blur-[140px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand/10 blur-[140px]"
       />
 
       {/* Hero Content */}
@@ -113,7 +113,7 @@ export function Hero() {
         ref={contentRef}
         className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center text-center"
       >
-        <p className="mb-5 text-sm font-medium uppercase tracking-[0.35em] text-white/60">
+        <p className="mb-5 text-sm font-medium uppercase tracking-[0.35em] text-ink/60">
           Hello, I'm
         </p>
 
@@ -135,11 +135,11 @@ export function Hero() {
           </VideoText>
         </div>
 
-        <p className="mt-7 text-xl font-medium text-[#00ffb2] sm:text-2xl">
+        <p className="mt-7 text-xl font-medium text-brand sm:text-2xl">
           Frontend / Full-Stack Developer
         </p>
 
-        <p className="mt-6 max-w-3xl text-base leading-7 text-white/65 sm:text-lg">
+        <p className="mt-6 max-w-3xl text-base leading-7 text-ink/65 sm:text-lg">
           I build{" "}
           <Highlighter
             action="underline"

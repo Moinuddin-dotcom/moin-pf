@@ -137,14 +137,14 @@ gsap.fromTo(
     <>
       <main
         ref={pageRef}
-        className="min-h-screen overflow-hidden bg-[#0a0a0a] text-white"
+        className="min-h-screen overflow-hidden bg-surface text-ink"
       >
         {/* Navigation */}
-        <header className="project-back sticky top-0 z-50 border-b border-white/10 bg-[#0a0a0a]/80 backdrop-blur-xl">
+        <header className="project-back sticky top-0 z-50 border-b border-ink/10 bg-surface/80 backdrop-blur-xl">
           <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6">
             <Link
               href="/#projects"
-              className="group inline-flex items-center gap-2 text-sm font-medium text-white/60 transition-colors hover:text-white"
+              className="group inline-flex items-center gap-2 text-sm font-medium text-ink/60 transition-colors hover:text-ink"
             >
               <ArrowLeft
                 size={18}
@@ -154,7 +154,7 @@ gsap.fromTo(
               <span>Back to Projects</span>
             </Link>
 
-            <span className="text-sm font-medium text-white/30">
+            <span className="text-sm font-medium text-ink/30">
               {project.number}
             </span>
           </div>
@@ -164,7 +164,7 @@ gsap.fromTo(
         <section className="px-5 pb-20 pt-20 sm:px-6 md:pb-28 md:pt-28">
           <div className="mx-auto max-w-7xl">
             <div className="max-w-4xl">
-              <p className="project-category text-xs font-semibold uppercase tracking-[0.3em] text-[#00ffb2] sm:text-sm">
+              <p className="project-category text-xs font-semibold uppercase tracking-[0.3em] text-brand sm:text-sm">
                 {project.category}
               </p>
 
@@ -172,7 +172,7 @@ gsap.fromTo(
                 {project.title}
               </h1>
 
-              <p className="project-description mt-8 max-w-3xl text-base leading-8 text-white/60 sm:text-lg">
+              <p className="project-description mt-8 max-w-3xl text-base leading-8 text-ink/60 sm:text-lg">
   <Highlighter
     action="highlight"
     color="#00ffb2"
@@ -189,7 +189,7 @@ gsap.fromTo(
             </div>
 
             {/* Hero image */}
-            <div className="project-hero-image mt-12 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] shadow-2xl sm:mt-16 sm:rounded-3xl">
+            <div className="project-hero-image mt-12 overflow-hidden rounded-2xl border border-ink/10 bg-ink/[0.03] shadow-2xl sm:mt-16 sm:rounded-3xl">
               <img
                 src={project.image}
                 alt={`${project.title} homepage`}
@@ -200,11 +200,11 @@ gsap.fromTo(
         </section>
 
         {/* Overview */}
-        <section className="border-y border-white/10 px-5 py-20 sm:px-6 md:py-28">
+        <section className="border-y border-ink/10 px-5 py-20 sm:px-6 md:py-28">
           <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[1.1fr_0.9fr]">
             {/* Features */}
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#00ffb2]">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand">
                 What I Built
               </p>
 
@@ -216,12 +216,12 @@ gsap.fromTo(
                 {project.features.map((feature) => (
                   <div
                     key={feature}
-                    className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.025] p-4 text-sm text-white/65"
+                    className="flex items-center gap-3 rounded-2xl border border-ink/10 bg-ink/[0.025] p-4 text-sm text-ink/65"
                   >
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#00ffb2]/10">
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand/10">
                       <Check
                         size={14}
-                        className="text-[#00ffb2]"
+                        className="text-brand"
                       />
                     </span>
 
@@ -233,7 +233,7 @@ gsap.fromTo(
 
             {/* Technologies */}
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#00ffb2]">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand">
                 Technology
               </p>
 
@@ -245,7 +245,7 @@ gsap.fromTo(
                 {project.technologies.map((technology) => (
                   <span
                     key={technology}
-                    className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-white/65 transition-colors hover:border-[#00ffb2]/30 hover:text-[#00ffb2]"
+                    className="rounded-full border border-ink/10 bg-ink/[0.03] px-4 py-2.5 text-sm text-ink/65 transition-colors hover:border-brand/30 hover:text-brand"
                   >
                     {technology}
                   </span>
@@ -262,10 +262,10 @@ gsap.fromTo(
               <div className="flex items-center gap-3">
                 <Play
                   size={17}
-                  className="fill-[#00ffb2] text-[#00ffb2]"
+                  className="fill-brand text-brand"
                 />
 
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/50">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-ink/50">
                   Project Walkthrough
                 </p>
               </div>
@@ -291,7 +291,7 @@ gsap.fromTo(
       {/* Heading */}
       <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#00ffb2]">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand">
             Project Gallery
           </p>
 
@@ -300,7 +300,7 @@ gsap.fromTo(
           </h2>
         </div>
 
-        <p className="max-w-md text-sm leading-6 text-white/40">
+        <p className="max-w-md text-sm leading-6 text-ink/40">
           A closer look at the interfaces and product experiences
           I worked on.
         </p>
@@ -334,7 +334,7 @@ gsap.fromTo(
               key={image}
               type="button"
               onClick={() => setSelectedImage(image)}
-              className={`project-gallery-item group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] text-left sm:rounded-3xl ${
+              className={`project-gallery-item group relative overflow-hidden rounded-2xl border border-ink/10 bg-ink/[0.03] text-left sm:rounded-3xl ${
                 index === 0 ? "md:col-span-2" : ""
               }`}
             >
@@ -375,9 +375,9 @@ gsap.fromTo(
         {/* Bottom CTA */}
         <section className="px-5 pb-20 pt-10 sm:px-6 md:pb-28">
           <div className="mx-auto max-w-7xl">
-            <div className="flex flex-col gap-8 rounded-3xl border border-white/10 bg-white/[0.025] p-7 sm:p-10 md:flex-row md:items-center md:justify-between md:p-12">
+            <div className="flex flex-col gap-8 rounded-3xl border border-ink/10 bg-ink/[0.025] p-7 sm:p-10 md:flex-row md:items-center md:justify-between md:p-12">
               <div>
-                <p className="text-sm text-white/35">
+                <p className="text-sm text-ink/35">
                   Want to explore the live product?
                 </p>
 
@@ -391,7 +391,7 @@ gsap.fromTo(
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-fit items-center gap-2 rounded-full bg-[#00ffb2] px-6 py-3 text-sm font-semibold text-black transition duration-300 hover:scale-[1.03]"
+                  className="inline-flex w-fit items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-black transition duration-300 hover:scale-[1.03]"
                 >
                   Visit Live Project
                   <ArrowUpRight size={17} />

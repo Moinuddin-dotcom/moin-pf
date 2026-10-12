@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 export function ProjectShowcase() {
   const sectionRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
-const panelsRef = useRef<HTMLElement[]>([]);
+  const trackRef = useRef<HTMLDivElement>(null);
   const activeProjectRef = useRef(0);
 
   const [activeProject, setActiveProject] = useState(0);
@@ -22,49 +22,46 @@ const panelsRef = useRef<HTMLElement[]>([]);
   useLayoutEffect(() => {
     const section = sectionRef.current;
     const stage = stageRef.current;
+    const track = trackRef.current;
 
-    if (!section || !stage) return;
+    if (!section || !stage || !track) return;
 
     const context = gsap.context(() => {
-      const panels = panelsRef.current.filter(Boolean);
-
-      if (!panels.length) return;
-
       const mm = gsap.matchMedia();
 
+      // Desktop: pin the stage and slide the project track horizontally,
+      // so scrolling down moves through the projects from left to right.
       mm.add("(min-width: 768px)", () => {
-        gsap.set(panels, {
-          opacity: 0,
-          scale: 0.94,
-          y: 50,
-        });
+        const getDistance = () => track.scrollWidth - track.clientWidth;
+        const lastIndex = projects.length - 1;
 
-        gsap.set(panels[0], {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-        });
-
-        const timeline = gsap.timeline({
-          defaults: {
-            ease: "power2.inOut",
-          },
+        const tween = gsap.to(track, {
+          x: () => -getDistance(),
+          ease: "none",
           scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: `+=${projects.length * 100}%`,
-            pin: stage,
+            trigger: stage,
+            // The stage is only as tall as its content, so pin it centred
+            // in the viewport (or at the top if it is taller than the screen).
+            start: () =>
+              stage.offsetHeight < window.innerHeight
+                ? "center center"
+                : "top top",
+            end: () => `+=${getDistance()}`,
+            pin: true,
             scrub: 1,
             anticipatePin: 1,
             invalidateOnRefresh: true,
+            snap:
+              lastIndex > 0
+                ? {
+                    snapTo: 1 / lastIndex,
+                    duration: { min: 0.2, max: 0.6 },
+                    ease: "power1.inOut",
+                  }
+                : undefined,
 
             onUpdate: (self) => {
-              const progress = self.progress;
-
-              const nextIndex = Math.min(
-                projects.length - 1,
-                Math.floor(progress * projects.length),
-              );
+              const nextIndex = Math.round(self.progress * lastIndex);
 
               if (nextIndex !== activeProjectRef.current) {
                 activeProjectRef.current = nextIndex;
@@ -74,43 +71,9 @@ const panelsRef = useRef<HTMLElement[]>([]);
           },
         });
 
-        projects.forEach((_, index) => {
-          if (index === 0) return;
-
-          const previousPanel = panels[index - 1];
-          const currentPanel = panels[index];
-
-          timeline
-            .to(
-              previousPanel,
-              {
-                opacity: 0,
-                scale: 0.94,
-                y: -40,
-                duration: 1,
-              },
-              index - 1,
-            )
-            .fromTo(
-              currentPanel,
-              {
-                opacity: 0,
-                scale: 0.94,
-                y: 50,
-              },
-              {
-                opacity: 1,
-                scale: 1,
-                y: 0,
-                duration: 1,
-              },
-              index - 1,
-            );
-        });
-
         return () => {
-          timeline.scrollTrigger?.kill();
-          timeline.kill();
+          tween.scrollTrigger?.kill();
+          tween.kill();
         };
       });
 
@@ -150,67 +113,52 @@ const panelsRef = useRef<HTMLElement[]>([]);
       <section
         ref={sectionRef}
         id="projects"
-        className="relative bg-[#0a0a0a] text-white"
+        className="relative bg-surface text-ink"
       >
-        {/* Desktop pinned stage */}
+        {/* Desktop pinned horizontal stage */}
         <div
           ref={stageRef}
-          className="relative hidden min-h-screen overflow-hidden md:block"
+          className="relative hidden overflow-hidden py-12 md:block"
         >
-          <div className="mx-auto flex min-h-screen max-w-7xl items-center px-6 py-12 lg:py-24">
-            <div className="grid w-full grid-cols-[0.3fr_1fr_0.7fr] items-center gap-8">
-              {/* Project number */}
-              <div className="self-start pt-20">
-                <p className="text-sm font-medium uppercase tracking-[0.3em] text-[#00ffb2]/70">
-                  Selected Work
-                </p>
+          {/* Heading and project counter */}
+          <div className="pointer-events-none">
+            <div className="mx-auto flex max-w-7xl items-end justify-between px-6">
+              <p className="text-sm font-medium uppercase tracking-[0.3em] text-brand/70">
+                Selected Work
+              </p>
 
-                <div className="mt-8 flex items-end gap-2">
-                  <span className="text-7xl font-semibold tracking-[-0.06em]">
-                    {projects[activeProject].number}
-                  </span>
+              <div className="flex items-end gap-2">
+                <span className="text-5xl font-semibold tracking-[-0.06em] lg:text-6xl">
+                  {projects[activeProject].number}
+                </span>
 
-                  <span className="pb-2 text-white/20">
-                    / {projects.length.toString().padStart(2, "0")}
-                  </span>
-                </div>
+                <span className="pb-1.5 text-ink/20">
+                  / {projects.length.toString().padStart(2, "0")}
+                </span>
               </div>
+            </div>
+          </div>
 
-              {/* Project panels */}
-              <div className="relative aspect-[16/10]">
-                {projects.map((project, index) => (
-                  <article
-                    key={project.title}
-                    ref={(element) => {
-                      if (element) {
-                        panelsRef.current[index] = element;
-                      }
-                    }}
-                    className="absolute inset-0"
-                  >
-                    <div className="h-full overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] shadow-2xl">
-                      <img
-                        src={project.image}
-                        alt={`${project.title} homepage`}
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
-                  </article>
-                ))}
-              </div>
+          {/* Project track */}
+          <div ref={trackRef} className="mt-8 flex w-full">
+            {projects.map((project) => (
+              <article
+                key={project.title}
+                className="flex w-full shrink-0 items-center"
+              >
+                <div className="mx-auto grid w-full max-w-7xl grid-cols-[1.15fr_0.85fr] items-center gap-10 px-6 lg:gap-14">
+                  {/* Project image */}
+                  <div className="aspect-[16/10] max-h-[62vh] w-full overflow-hidden rounded-3xl border border-ink/10 bg-ink/[0.03] shadow-2xl">
+                    <img
+                      src={project.image}
+                      alt={`${project.title} homepage`}
+                      className="h-full w-full object-cover object-top"
+                    />
+                  </div>
 
-              {/* Project information */}
-              <div className="relative min-h-[420px]">
-                {projects.map((project, index) => (
-                  <div
-                    key={project.title}
-                    className={`absolute inset-0 flex flex-col justify-center transition-opacity duration-300 ${
-                      activeProject === index
-                        ? "pointer-events-auto opacity-100"
-                        : "pointer-events-none opacity-0"
-                    }`}
-                  >
-                    <p className="text-sm font-medium uppercase tracking-[0.2em] text-[#00ffb2]">
+                  {/* Project information */}
+                  <div>
+                    <p className="text-sm font-medium uppercase tracking-[0.2em] text-brand">
                       {project.category}
                     </p>
 
@@ -218,7 +166,7 @@ const panelsRef = useRef<HTMLElement[]>([]);
                       {project.title}
                     </h2>
 
-                    <p className="mt-5 text-sm leading-7 text-white/50">
+                    <p className="mt-5 text-sm leading-7 text-ink/50">
                       {project.description}
                     </p>
 
@@ -226,7 +174,7 @@ const panelsRef = useRef<HTMLElement[]>([]);
                       {project.technologies.slice(0, 5).map((technology) => (
                         <span
                           key={technology}
-                          className="rounded-full border border-white/10 px-3 py-1.5 text-xs text-white/55"
+                          className="rounded-full border border-ink/10 px-3 py-1.5 text-xs text-ink/55"
                         >
                           {technology}
                         </span>
@@ -244,28 +192,28 @@ const panelsRef = useRef<HTMLElement[]>([]);
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2 text-sm font-semibold text-white transition hover:border-[#00ffb2]/50 hover:text-[#00ffb2]"
+                        className="inline-flex items-center gap-2 rounded-full border border-ink/15 px-5 py-2 text-sm font-semibold text-ink transition hover:border-brand/50 hover:text-brand"
                       >
                         Live Project
                         <ArrowUpRight size={17} />
                       </a>
                     </div>
                   </div>
-                ))}
-              </div>
-            </div>
+                </div>
+              </article>
+            ))}
           </div>
 
           {/* Bottom indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+          <div className="mt-8 flex justify-center">
             <div className="flex items-center gap-2">
               {projects.map((project, index) => (
                 <div
                   key={project.title}
                   className={`h-1 rounded-full transition-all duration-300 ${
                     activeProject === index
-                      ? "w-10 bg-[#00ffb2]"
-                      : "w-3 bg-white/20"
+                      ? "w-10 bg-brand"
+                      : "w-3 bg-ink/20"
                   }`}
                 />
               ))}
@@ -276,7 +224,7 @@ const panelsRef = useRef<HTMLElement[]>([]);
         {/* Mobile */}
         <div className="mx-auto max-w-2xl px-6 py-24 md:hidden">
           <div className="mb-14">
-            <p className="text-sm font-medium uppercase tracking-[0.3em] text-[#00ffb2]/70">
+            <p className="text-sm font-medium uppercase tracking-[0.3em] text-brand/70">
               Selected Work
             </p>
 
@@ -300,7 +248,7 @@ const panelsRef = useRef<HTMLElement[]>([]);
           <div className="space-y-20">
             {projects.map((project) => (
               <article key={project.title} className="project-mobile-card">
-                <div className="overflow-hidden rounded-2xl border border-white/10">
+                <div className="overflow-hidden rounded-2xl border border-ink/10">
                   <img
                     src={project.image}
                     alt={`${project.title} homepage`}
@@ -308,13 +256,13 @@ const panelsRef = useRef<HTMLElement[]>([]);
                   />
                 </div>
 
-                <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-[#00ffb2]">
+                <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-brand">
                   {project.category}
                 </p>
 
                 <h3 className="mt-3 text-3xl font-semibold">{project.title}</h3>
 
-                <p className="mt-4 text-sm leading-7 text-white/50">
+                <p className="mt-4 text-sm leading-7 text-ink/50">
                   {project.description}
                 </p>
 
@@ -322,7 +270,7 @@ const panelsRef = useRef<HTMLElement[]>([]);
                   {project.technologies.map((technology) => (
                     <span
                       key={technology}
-                      className="rounded-full border border-white/10 px-3 py-1.5 text-xs text-white/55"
+                      className="rounded-full border border-ink/10 px-3 py-1.5 text-xs text-ink/55"
                     >
                       {technology}
                     </span>
@@ -338,7 +286,7 @@ const panelsRef = useRef<HTMLElement[]>([]);
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2 text-sm font-semibold"
+                    className="inline-flex items-center gap-2 rounded-full border border-ink/15 px-5 py-2 text-sm font-semibold"
                   >
                     Live Project
                     <ArrowUpRight size={17} />

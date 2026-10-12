@@ -56,7 +56,7 @@ export function ProjectCaseStudy({
 
   return (
     <div
-      className="fixed inset-0 z-[100] overflow-y-auto bg-[#050505]/95 backdrop-blur-xl"
+      className="fixed inset-0 z-[100] overflow-y-auto bg-surface/95 backdrop-blur-xl"
       role="dialog"
       aria-modal="true"
       aria-label={`${project.title} case study`}
@@ -66,7 +66,7 @@ export function ProjectCaseStudy({
         type="button"
         onClick={onClose}
         aria-label="Close case study"
-        className="fixed right-5 top-5 z-[110] flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:bg-white/10"
+        className="fixed right-5 top-5 z-[110] flex h-11 w-11 items-center justify-center rounded-full border border-ink/10 bg-ink/5 text-ink transition hover:bg-ink/10"
       >
         <X size={20} />
       </button>
@@ -74,25 +74,25 @@ export function ProjectCaseStudy({
       <div className="mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-28">
         {/* Header */}
         <div className="max-w-4xl">
-          <p className="text-sm font-medium uppercase tracking-[0.3em] text-[#00ffb2]">
+          <p className="text-sm font-medium uppercase tracking-[0.3em] text-brand">
             {project.number} / Case Study
           </p>
 
-          <h2 className="mt-5 text-5xl font-semibold tracking-[-0.05em] text-white sm:text-6xl md:text-8xl">
+          <h2 className="mt-5 text-5xl font-semibold tracking-[-0.05em] text-ink sm:text-6xl md:text-8xl">
             {project.title}
           </h2>
 
-          <p className="mt-4 text-xl text-white/50">
+          <p className="mt-4 text-xl text-ink/50">
             {project.category}
           </p>
 
-          <p className="mt-8 max-w-3xl text-base leading-8 text-white/65 sm:text-lg">
+          <p className="mt-8 max-w-3xl text-base leading-8 text-ink/65 sm:text-lg">
             {project.description}
           </p>
         </div>
 
         {/* Main image */}
-        <div className="mt-14 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]">
+        <div className="mt-14 overflow-hidden rounded-3xl border border-ink/10 bg-ink/[0.03]">
           <img
             src={activeImage}
             alt={`${project.title} project preview`}
@@ -109,8 +109,8 @@ export function ProjectCaseStudy({
               onClick={() => setActiveImage(image)}
               className={`shrink-0 overflow-hidden rounded-xl border transition ${
                 activeImage === image
-                  ? "border-[#00ffb2]"
-                  : "border-white/10 opacity-60 hover:opacity-100"
+                  ? "border-brand"
+                  : "border-ink/10 opacity-60 hover:opacity-100"
               }`}
             >
               <img
@@ -126,7 +126,7 @@ export function ProjectCaseStudy({
         <div className="mt-16 grid gap-12 lg:grid-cols-[1fr_1fr]">
           {/* Features */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#00ffb2]">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand">
               What I built
             </p>
 
@@ -134,7 +134,7 @@ export function ProjectCaseStudy({
               {project.features.map((feature) => (
                 <div
                   key={feature}
-                  className="rounded-xl border border-white/10 bg-white/[0.025] px-4 py-4 text-sm text-white/65"
+                  className="rounded-xl border border-ink/10 bg-ink/[0.025] px-4 py-4 text-sm text-ink/65"
                 >
                   {feature}
                 </div>
@@ -144,7 +144,7 @@ export function ProjectCaseStudy({
 
           {/* Technologies */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#00ffb2]">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand">
               Technology
             </p>
 
@@ -152,7 +152,7 @@ export function ProjectCaseStudy({
               {project.technologies.map((technology) => (
                 <span
                   key={technology}
-                  className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-white/65"
+                  className="rounded-full border border-ink/10 bg-ink/[0.03] px-4 py-2 text-sm text-ink/65"
                 >
                   {technology}
                 </span>
@@ -165,9 +165,9 @@ export function ProjectCaseStudy({
        {project.video && (
   <div className="mt-16">
     <div className="flex items-center gap-3">
-      <Play size={18} className="text-[#00ffb2]" />
+      <Play size={18} className="text-brand" />
 
-      <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/70">
+      <p className="text-xs font-semibold uppercase tracking-[0.25em] text-ink/70">
         Project Walkthrough
       </p>
     </div>
@@ -185,7 +185,7 @@ export function ProjectCaseStudy({
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#00ffb2] px-6 py-3 text-sm font-semibold text-black transition hover:scale-[1.02]"
+              className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-black transition hover:scale-[1.02]"
             >
               Visit Live Project
               <ArrowUpRight size={17} />
@@ -196,7 +196,7 @@ export function ProjectCaseStudy({
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/5"
+                className="inline-flex items-center gap-2 rounded-full border border-ink/15 px-6 py-3 text-sm font-semibold text-ink transition hover:bg-ink/5"
               >
                 View GitHub
                 <ArrowUpRight size={17} />
