@@ -85,4 +85,50 @@ export const projects = [
       "Responsive interface",
     ],
   },
+
+  {
+    number: "03",
+    slug: "gadgethive",
+    title: "GadgetHive",
+    category: "E-commerce Platform",
+
+    description:
+      "A premium audio and gadget e-commerce platform with a storefront for headphones, speakers, and soundbars, plus an admin dashboard for managing products, categories, orders, and customers.",
+
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+    ],
+
+    image: "/projects/gadgethive/home-image.png",
+
+    gallery: [
+      "/projects/gadgethive/landing-page.png",
+      "/projects/gadgethive/product-details.png",
+      "/projects/gadgethive/dashboard.png",
+      "/projects/gadgethive/technology.png",
+      "/projects/gadgethive/support.png",
+    ],
+
+    video:
+      "https://www.loom.com/share/ab4674a2e9c3457ab995830c430b372b",
+
+    liveUrl: "https://gadget-hive.vercel.app/",
+
+    githubUrl: "https://github.com/Moinuddin-dotcom/pixel-perfect-palette-901",
+
+    features: [
+      "Product catalog",
+      "Product details with image gallery",
+      "Shopping cart",
+      "Sale pricing and stock tracking",
+      "Admin dashboard with revenue and traffic analytics",
+      "Category, product, and order management",
+      "Customer management",
+      "Support page with FAQ and contact form",
+      "Newsletter subscription",
+    ],
+  },
 ] as const;

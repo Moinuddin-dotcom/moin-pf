@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { SmoothCursor } from "@/components/ui/smooth-cursor";
+// AI chat assistant: disabled until the Anthropic account has credit.
+// import { ChatWidget } from "@/components/chat/ChatWidget";
 
 export const metadata: Metadata = {
   title: "Md. Moinuddin Chowdhury | Full-Stack Developer",
@@ -18,6 +20,7 @@ export default function RootLayout({
       <body>
         <SmoothCursor />
         {children}
+        {/* <ChatWidget /> */}
       </body>
     </html>
   );
