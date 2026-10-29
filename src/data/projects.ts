@@ -51,6 +51,54 @@ export const projects = [
 
   {
     number: "02",
+    slug: "prime-jewellery-uae",
+    title: "Prime Jewellery UAE",
+    category: "E-commerce Platform",
+
+    description:
+      "A gold and silver e-commerce platform where customers buy precious metals outright or by installment, with a built-in affiliate system that rewards one-to-many referrals with bonuses.",
+
+    technologies: [
+      "React",
+      "NestJS",
+      "PostgreSQL",
+      "Supabase",
+      "Redis",
+      "BullMQ",
+      "Stripe",
+      "AWS Storage",
+      "WhatsApp API (ChatPingGo)",
+    ],
+
+    image: "/projects/prime-jewellery/main-image.png",
+
+    gallery: [
+      "/projects/prime-jewellery/dashboard.png",
+      "/projects/prime-jewellery/products.png",
+      "/projects/prime-jewellery/product-details.png",
+      "/projects/prime-jewellery/buy-package.png",
+    ],
+
+    video: "",
+
+    liveUrl: "https://primejewellery.ae/",
+
+    githubUrl: "",
+
+    features: [
+      "Buy gold and silver by installment",
+      "Direct gold purchase",
+      "Affiliate system",
+      "Refer a user",
+      "One-to-many referral bonuses",
+      "Stripe and international payment gateways",
+      "WhatsApp notifications",
+      "Background job processing with BullMQ",
+    ],
+  },
+
+  {
+    number: "03",
     slug: "chapaghor",
     title: "Chapaghor",
     category: "E-commerce & Printing Platform",
@@ -87,7 +135,7 @@ export const projects = [
   },
 
   {
-    number: "03",
+    number: "04",
     slug: "gadgethive",
     title: "GadgetHive",
     category: "E-commerce Platform",
