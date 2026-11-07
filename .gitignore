@@ -42,3 +42,6 @@ next-env.d.ts
 
 .vercel
 config.bat
+
+# editor config: never commit (malware has used .vscode/tasks.json auto-run tasks)
+.vscode/
